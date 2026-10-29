@@ -7,10 +7,18 @@
   <meta name="description"
     content="Fanouškovský průvodce světem Assassin's Creed Shadows. Poznejte Naoe, Yasukeho a feudální Japonsko.">
   <title>Shadows — cesta stínem</title>
+
+  <!-- Open Graph Meta Tagy pro sociální sítě -->
+  <meta property="og:title" content="Shadows — cesta stínem">
+  <meta property="og:description"
+    content="Fanouškovský průvodce světem Assassin's Creed Shadows. Poznejte Naoe, Yasukeho a feudální Japonsko.">
+  <meta property="og:image" content="img/hero.jpg">
+  <meta property="og:type" content="website">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&family=Shippori+Mincho:wght@600;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.svg">
@@ -22,7 +30,7 @@
   <header class="site-header">
     <nav class="nav container" aria-label="Hlavní navigace">
       <a class="brand" href="#domu" aria-label="Shadows domů">
-        <img class="brand-logo" src="logo.png" alt="">
+        <img class="brand-logo" src="img/logo.png" alt="Logo Shadows">
         <span>SHADOWS<small>ASSASSIN'S CREED</small></span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu <span
@@ -40,7 +48,11 @@
   <main id="obsah">
     <section class="hero" id="domu" aria-labelledby="hero-title">
       <div class="hero-text container">
-        <p class="eyebrow"><span></span> Feudální Japonsko · 1579</p>
+        <div class="japanese-title" aria-hidden="true">影の道</div>
+        <div class="hero-header-row">
+          <p class="eyebrow"><span></span> Feudální Japonsko · 1579</p>
+          <div class="hanko-stamp" aria-hidden="true">影</div>
+        </div>
         <h1 id="hero-title">Staň se<br><em>stínem.</em></h1>
         <p class="hero-lead">Dvě cesty. Jeden osud. Objev příběh Naoe a Yasukeho v zemi, kde se ticho stává největší
           zbraní.</p>
@@ -50,9 +62,7 @@
         </div>
       </div>
       <div class="hero-art" aria-label="Oficiální artwork Assassin’s Creed Shadows" role="img">
-        <img class="hero-photo"
-          src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/2g1VOO6bJ18ztWE7dtGatp/9651d7dfaeaf465b12b7148fb078138d/ACSH_Character_Reference_Guide_Header.jpg"
-          alt="">
+        <img class="hero-photo" src="img/hero.jpg" alt="">
       </div>
       <div class="hero-side-note">Ticho před bouří <span>↓</span></div>
       <div class="scroll-hint" aria-hidden="true"><span></span> Scrolluj</div>
@@ -101,8 +111,7 @@
         </div>
         <div class="character-grid">
           <article class="character-card naoe">
-            <div class="character-portrait"><img
-                src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/Oj8BHBwI2INkit8VYjf5c/32add49fc733fe940b2e48ac1a2725bf/NAOE.jpg"
+            <div class="character-portrait"><img src="img/naoe.jpg"
                 alt="Naoe, shinobi z Assassin’s Creed Shadows"><b>直</b></div>
             <div class="character-info">
               <p class="card-label">Shinobi · Iga</p>
@@ -112,8 +121,7 @@
             </div>
           </article>
           <article class="character-card yasuke">
-            <div class="character-portrait"><img
-                src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4lMJbkXqm51EMFBvUa0Oty/36960af885137106867d5833c88ab3b2/YASUKE-V2_689x918_V1.jpg"
+            <div class="character-portrait"><img src="img/yasuke.jpg"
                 alt="Yasuke, samuraj z Assassin’s Creed Shadows"><b>力</b></div>
             <div class="character-info">
               <p class="card-label">Samuraj · Cizinec</p>
@@ -147,9 +155,7 @@
           </ul>
         </div>
         <div class="world-art" aria-label="Výhled na japonské údolí a hrad" role="img">
-          <img class="world-photo"
-            src="https://insider-gaming.com/wp-content/uploads/2024/05/660e5a03fbff4e2940488bcd-5.jpg"
-            alt="Screenshot krajiny z Assassin’s Creed Shadows">
+          <img class="world-photo" src="img/world.jpg" alt="Screenshot krajiny z Assassin’s Creed Shadows">
         </div>
       </div>
       <div class="location-panel">
@@ -159,8 +165,7 @@
         </div>
         <div class="location-grid">
           <a class="location-card location-iga" href="#location-iga">
-            <img src="https://insider-gaming.com/wp-content/uploads/2024/05/660e5a03fbff4e2940488bcd-1.jpg"
-              alt="Screenshot prostředí z Assassin’s Creed Shadows">
+            <img src="img/iga.jpg" alt="Screenshot prostředí z Assassin’s Creed Shadows">
             <span class="location-index">01</span>
             <span class="location-pin">⌖</span>
             <div>
@@ -169,8 +174,7 @@
             </div>
           </a>
           <a class="location-card location-osaka" href="#location-osaka">
-            <img src="https://insider-gaming.com/wp-content/uploads/2024/05/660e5a03fbff4e2940488bcd-3.jpg"
-              alt="Screenshot města z Assassin’s Creed Shadows">
+            <img src="img/osaka.jpg" alt="Screenshot města z Assassin’s Creed Shadows">
             <span class="location-index">02</span>
             <span class="location-pin">⌖</span>
             <div>
@@ -179,8 +183,7 @@
             </div>
           </a>
           <a class="location-card location-kyoto" href="#location-kyoto">
-            <img src="https://insider-gaming.com/wp-content/uploads/2024/05/660e5a03fbff4e2940488bcd-4.jpg"
-              alt="Screenshot chrámu z Assassin’s Creed Shadows">
+            <img src="img/kyoto.jpg" alt="Screenshot chrámu z Assassin’s Creed Shadows">
             <span class="location-index">03</span>
             <span class="location-pin">⌖</span>
             <div>
@@ -189,8 +192,7 @@
             </div>
           </a>
           <a class="location-card location-azuchi" href="#location-azuchi">
-            <img src="https://insider-gaming.com/wp-content/uploads/2024/05/660e5a03fbff4e2940488bcd-2.jpg"
-              alt="Screenshot hradu z Assassin’s Creed Shadows">
+            <img src="img/azuchi.jpg" alt="Screenshot hradu z Assassin’s Creed Shadows">
             <span class="location-index">04</span>
             <span class="location-pin">⌖</span>
             <div>
@@ -206,8 +208,7 @@
     <section class="location-details container" aria-label="Podrobné informace o lokacích">
       <article class="location-detail" id="location-iga">
         <div class="detail-image">
-          <img src="https://insider-gaming.com/wp-content/uploads/2024/05/660e5a03fbff4e2940488bcd-1.jpg"
-            alt="Horské prostředí Igy z Assassin’s Creed Shadows" loading="lazy">
+          <img src="img/iga.jpg" alt="Horské prostředí Igy z Assassin’s Creed Shadows" loading="lazy">
         </div>
         <div class="detail-copy">
           <p class="section-kicker">01 / Domov shinobi</p>
@@ -219,8 +220,7 @@
       </article>
       <article class="location-detail" id="location-osaka">
         <div class="detail-image">
-          <img src="https://insider-gaming.com/wp-content/uploads/2024/05/660e5a03fbff4e2940488bcd-3.jpg"
-            alt="Ósaka z Assassin’s Creed Shadows" loading="lazy">
+          <img src="img/osaka.jpg" alt="Ósaka z Assassin’s Creed Shadows" loading="lazy">
         </div>
         <div class="detail-copy">
           <p class="section-kicker">02 / Město obchodu</p>
@@ -232,8 +232,7 @@
       </article>
       <article class="location-detail" id="location-kyoto">
         <div class="detail-image">
-          <img src="https://insider-gaming.com/wp-content/uploads/2024/05/660e5a03fbff4e2940488bcd-4.jpg"
-            alt="Kjóto z Assassin’s Creed Shadows" loading="lazy">
+          <img src="img/kyoto.jpg" alt="Kjóto z Assassin’s Creed Shadows" loading="lazy">
         </div>
         <div class="detail-copy">
           <p class="section-kicker">03 / Politické srdce</p>
@@ -245,8 +244,7 @@
       </article>
       <article class="location-detail" id="location-azuchi">
         <div class="detail-image">
-          <img src="https://insider-gaming.com/wp-content/uploads/2024/05/660e5a03fbff4e2940488bcd-2.jpg"
-            alt="Azuči z Assassin’s Creed Shadows" loading="lazy">
+          <img src="img/azuchi.jpg" alt="Azuči z Assassin’s Creed Shadows" loading="lazy">
         </div>
         <div class="detail-copy">
           <p class="section-kicker">04 / Pevnost Nobunagy</p>
@@ -257,41 +255,27 @@
         </div>
       </article>
     </section>
-
   </main>
 
   <footer class="footer" id="citace">
-    <div class="container footer-top">
-      <div><a class="brand" href="#domu"><span class="brand-mark">隠</span><span>SHADOWS<small>ASSASSIN'S
-              CREED</small></span></a>
-        <p class="footer-note">Školní fanouškovská prezentace · Neoficiální web</p>
+    <div class="container footer-bottom">
+      <div class="footer-brand">
+        <a class="brand" href="#domu" aria-label="Shadows domů">
+        <img class="brand-logo" src="img/logo.png" alt="Logo Shadows">
+        <span>SHADOWS<small>ASSASSIN'S CREED</small></span>
+        </a>
       </div>
-      <div class="footer-links">
-        <div><strong>Navigace</strong><a href="#pribeh">Příběh</a><a href="#postavy">Postavy</a><a href="#svet">Svět</a>
-        </div>
-        <div><strong>Validace</strong><a
-            href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniel-gorcica.github.io%2Fshadows%2F" target="_blank"
-            rel="noreferrer">HTML validátor ↗</a><a
-            href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaniel-gorcica.github.io%2Fshadows%2Fstyles.css"
-            target="_blank" rel="noreferrer">CSS validátor ↗</a></div>
-      </div>
+      <nav class="footer-links" aria-label="Validace a citace">
+        <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniel-gorcica.github.io%2Fshadows%2F" target="_blank"
+          rel="noreferrer">HTML5 <span aria-hidden="true">✓</span></a>
+        <i aria-hidden="true">/</i>
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaniel-gorcica.github.io%2Fshadows%2Fstyles.css"
+          target="_blank" rel="noreferrer">CSS3 <span aria-hidden="true">✓</span></a>
+        <i aria-hidden="true">/</i>
+        <a href="https://github.com/daniel-gorcica/shadows/blob/main/AI-CITACE.md" target="_blank"
+          rel="noreferrer">AI CITACE</a>
+      </nav>
     </div>
-    <div class="ai-citation container">
-      <div class="ai-citation-heading"><span class="ai-badge">AI</span>
-        <div>
-          <h2>AI-citace</h2>
-          <p>Podrobný přehled je v dokumentaci</p>
-        </div>
-      </div>
-      <div class="ai-citation-copy">
-        <p>Kompletní prompty, provedené úpravy, technologie a zdroje obrázků najdeš v souboru
-          <a href="AI-CITACE.md">AI-CITACE.md ↗</a>.
-        </p>
-      </div>
-    </div>
-    <div class="container footer-bottom"><span>© <span id="year"></span> Shadows fan project</span><span>Obrázky:
-        Ubisoft Entertainment · Vytvořeno s
-        respektem k tradici a detailu.</span></div>
   </footer>
 </body>
 
