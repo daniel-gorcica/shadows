@@ -11,7 +11,6 @@
   --jp: "Shippori Mincho", serif;
   --radius: 18px;
 
-  /* Tradiční asanoha vzor pro pozadí sekcí */
   --asanoha:
     linear-gradient(30deg, rgba(255, 255, 255, .022) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, .022) 87.5%, rgba(255, 255, 255, .022)),
     linear-gradient(150deg, rgba(255, 255, 255, .022) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, .022) 87.5%, rgba(255, 255, 255, .022)),
@@ -63,6 +62,66 @@ a {
   top: 1rem;
 }
 
+/* =========================================
+   GLOBÁLNÍ POZADÍ (Lotosy a Katany)
+   ========================================= */
+.global-bg-art {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* Je za vším ostatním */
+  pointer-events: none;
+  /* Nebrání klikání */
+  overflow: hidden;
+}
+
+.bg-lotus, .bg-katana {
+  position: absolute;
+  opacity: 0.15; /* Zvýšeno z 0.05, aby to bylo vidět */
+  filter: blur(8px); /* Sníženo z 25px, aby tvary zůstaly čitelné */
+}
+
+/* Umístění Lotosů */
+.bg-lotus-1 {
+  width: 600px;
+  height: 600px;
+  top: -10%;
+  left: -10%;
+  color: var(--red);
+  transform: rotate(15deg);
+}
+
+.bg-lotus-2 {
+  width: 500px;
+  height: 500px;
+  bottom: 10%;
+  right: -5%;
+  color: var(--gold);
+  transform: rotate(-25deg);
+}
+
+/* Umístění Katan */
+.bg-katana-1 {
+  width: 800px;
+  height: 200px;
+  top: 30%;
+  right: -15%;
+  color: var(--gold);
+  transform: rotate(-20deg);
+}
+
+.bg-katana-2 {
+  width: 700px;
+  height: 700px;
+  bottom: -10%;
+  left: 0%;
+  color: var(--red);
+  transform: rotate(10deg);
+}
+
+/* =========================================
+   ZÁKLADNÍ STYLY WEBU
+   ========================================= */
 .site-header {
   position: fixed;
   z-index: 10;
@@ -228,7 +287,6 @@ a {
   padding-top: 235px;
 }
 
-/* Vertikální japonský nápis vlevo */
 .japanese-title {
   display: none;
   position: absolute;
@@ -250,7 +308,6 @@ a {
   }
 }
 
-/* Řada s eyebrow + Hanko pečetidlo */
 .hero-header-row {
   display: flex;
   align-items: center;
@@ -474,6 +531,9 @@ em {
   border-top: 1px solid rgba(237, 241, 242, .1);
   border-bottom: 1px solid rgba(237, 241, 242, .1);
   background: #0b1217;
+  position: relative;
+  z-index: 2;
+  /* Aby pás byl nad fixním pozadím */
 }
 
 .japanese-track {
@@ -512,6 +572,9 @@ em {
 
 .section {
   padding-block: 105px;
+  position: relative;
+  z-index: 2;
+  /* Aby texty a karty byly nad fixním pozadím */
 }
 
 .reveal {
@@ -542,7 +605,6 @@ h2 {
   letter-spacing: -.055em;
 }
 
-/* Tah štětcem pod hlavními nadpisy */
 .intro-grid h2::after,
 .section-heading h2::after,
 .world-copy h2::after {
@@ -606,9 +668,20 @@ h2 {
 
 .characters {
   background-color: #16242c;
+  position: relative;
+  overflow: hidden;
+}
+
+.characters::before {
+  content: "";
+  position: absolute;
+  inset: -10px; /* Přesah, aby nebyly vidět ostré okraje po rozmazání */
   background-image: var(--asanoha);
   background-size: var(--asanoha-size);
   background-position: var(--asanoha-pos);
+  filter: blur(4px); /* ZDE UPRAVUJEŠ ROZMAZÁNÍ (čím větší číslo, tím víc) */
+  z-index: 0;
+  pointer-events: none;
 }
 
 .section-heading {
@@ -952,6 +1025,8 @@ h2 {
   display: grid;
   gap: 32px;
   padding-top: 52px;
+  position: relative;
+  z-index: 2;
 }
 
 .location-detail {
@@ -1015,6 +1090,8 @@ h2 {
 .footer {
   color: #aeb8c0;
   background: #0b1217;
+  position: relative;
+  z-index: 2;
 }
 
 .footer-bottom {
@@ -1070,6 +1147,74 @@ h2 {
   text-transform: uppercase;
 }
 
+/* =========================================
+   EFEKT ŠTĚTCE NA NADPISECH (Brush Text)
+   ========================================= */
+.brush-title {
+  filter: url(#brush-filter);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.brush-title em {
+  text-shadow: 0 0 12px rgba(184, 58, 50, 0.6);
+}
+
+/* =========================================
+   ROZMAZANÉ JAPONSKÉ ZNAKY V POZADÍ
+   ========================================= */
+.brush-element {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.brush-kanji {
+  font-family: var(--jp);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--red);
+  opacity: 0.15;
+  filter: blur(20px);
+  transform-origin: center;
+}
+
+.hero-k {
+  top: 50%;
+  left: 35%;
+  font-size: clamp(200px, 40vw, 600px);
+  color: var(--gold);
+  opacity: 0.1;
+  transform: translate(-50%, -50%) rotate(-10deg);
+}
+
+.characters {
+  position: relative;
+  overflow: hidden;
+}
+
+.char-k {
+  bottom: -80px;
+  right: -50px;
+  font-size: clamp(200px, 35vw, 500px);
+  color: var(--red);
+  opacity: 0.15;
+  transform: rotate(-15deg);
+  filter: blur(25px);
+}
+
+/* === ZAJIŠTĚNÍ, ŽE TEXT ZŮSTANE NAD POZADÍM === */
+.hero-text,
+.intro-grid,
+.quote-line,
+.world-layout,
+.location-panel,
+.location-details {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responzivita pro menší obrazovky */
 @media (max-width: 760px) {
   .container {
     width: min(100% - 40px, 560px);
@@ -1284,6 +1429,11 @@ h2 {
   .brand {
     gap: 9px;
     font-size: 13px;
+  }
+
+  /* Skrytí velkých pozadních prvků na mobilu, aby nezdržovaly */
+  .global-bg-art {
+    display: none;
   }
 }
 

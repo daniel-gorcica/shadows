@@ -23,6 +23,11 @@
 - Přidat klikací karty lokací s podrobnějšími popisy pro Igu, Ósaku, Kjóto a Azuči.
 - Rozmístit obrázky detailů lokací střídavě vlevo a vpravo a zvětšit mezery mezi nimi.
 - Odstranit japonský znak z CTA panelu, následně odstranit celý CTA panel.
+- **Přidat do určitých částí stránky rozmazané nápisy a lotosové květy, které budou vypadat jako namalované štětcem.**
+- **Rozmazat samotné normální nadpisy tak, aby vypadaly, jako by byly napsané mokrým štětcem.**
+- **Přidat lotosové květy a katany do pozadí po celé stránce (globálně).**
+- **Zvýšit viditelnost těchto rozmazaných prvků v pozadí, aby nebyly neviditelné.**
+- **Rozmazat japonský geometrický vzor (asanoha) na pozadí sekcí, aby nepůsobil tak ostře a technicky.**
 
 ## Co vytvořila AI
 
@@ -46,11 +51,15 @@
 - Přidala střídání pořadí obrázku a textu u detailů lokací; na mobilu se layout skládá do jednoho sloupce.
 - Přepnula světlé sekce do tmavé barevné palety a odstranila červený CTA panel.
 - Odstranila celý závěrečný CTA panel podle zpětné vazby.
+- **Vytvořila vlastní SVG filtr (`feTurbulence`, `feDisplacementMap`), který aplikovala na nadpisy (`h1`, `h2`) pro dosažení autentického efektu rozpití tuše/štětce.**
+- **Vytvořila globální fixní kontejner (`position: fixed`), který obsahuje vektorové obrázky katan a lotosových květů. Tyto prvky mají vysoký `filter: blur` a nízkou průhlednost, takže vytvářejí atmosférické pozadí přes celou stránku.**
+- **Vytvořila a do pozadí sekcí umístila obří, silně rozmazané japonské znaky (影, 忍, 侍, 桜, 夢), které dotvářejí dojem japonské malby.**
+- **Přesunula původní CSS vzor `asanoha` do pseudoelementů (`::before`) a aplikovala na něj rozostření. Tím se vzor stal jemnou texturou na pozadí, aniž by jakkoliv narušil čitelnost textu nebo karet.**
 
 ## Použité technologie
 
 - HTML5
-- CSS3
+- CSS3 (včetně pokročilých SVG filtrů a pseudo-elementů)
 - JavaScript
 - Markdown
 - Google Fonts

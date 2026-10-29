@@ -8,7 +8,6 @@
     content="Fanouškovský průvodce světem Assassin's Creed Shadows. Poznejte Naoe, Yasukeho a feudální Japonsko.">
   <title>Shadows — cesta stínem</title>
 
-  <!-- Open Graph Meta Tagy pro sociální sítě -->
   <meta property="og:title" content="Shadows — cesta stínem">
   <meta property="og:description"
     content="Fanouškovský průvodce světem Assassin's Creed Shadows. Poznejte Naoe, Yasukeho a feudální Japonsko.">
@@ -26,7 +25,76 @@
 </head>
 
 <body>
+  <!-- SKRYTÝ SVG FILTR PRO EFEKT ŠTĚTCE NA NADPISECH -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 0; height: 0; pointer-events: none;">
+    <filter id="brush-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"
+        result="displaced" />
+      <feGaussianBlur in="displaced" stdDeviation="1" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </svg>
+
+  <!-- =========================================
+       GLOBÁLNÍ POZADÍ (Katany a lotosy po celé stránce)
+       ========================================= -->
+  <div class="global-bg-art" aria-hidden="true">
+
+    <!-- Lotos vlevo nahoře -->
+    <svg class="bg-lotus bg-lotus-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M100 180 C 60 180, 20 140, 20 100 C 40 110, 70 120, 100 160 C 130 120, 160 110, 180 100 C 180 140, 140 180, 100 180 Z"
+        fill="currentColor" />
+      <path d="M100 170 C 70 130, 60 80, 100 20 C 140 80, 130 130, 100 170 Z" fill="currentColor" opacity="0.8" />
+      <path d="M100 165 C 60 140, 30 100, 50 50 C 70 90, 80 130, 100 165 Z" fill="currentColor" opacity="0.5" />
+      <path d="M100 165 C 140 140, 170 100, 150 50 C 130 90, 120 130, 100 165 Z" fill="currentColor" opacity="0.5" />
+    </svg>
+
+    <!-- Katana vpravo nahoře -->
+    <svg class="bg-katana bg-katana-1" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Čepel -->
+      <path d="M 50 50 Q 200 40, 350 20 L 340 30 Q 200 50, 50 60 Z" fill="currentColor" />
+      <!-- Rukojeť -->
+      <rect x="20" y="48" width="30" height="4" fill="currentColor" />
+      <!-- Tsuba (ochrana) -->
+      <rect x="47" y="40" width="6" height="20" rx="2" fill="currentColor" />
+      <!-- Ovin rukojeti (detaily) -->
+      <line x1="25" y1="48" x2="25" y2="52" stroke="var(--paper)" stroke-width="1" />
+      <line x1="35" y1="48" x2="35" y2="52" stroke="var(--paper)" stroke-width="1" />
+    </svg>
+
+    <!-- Lotos vpravo uprostřed -->
+    <svg class="bg-lotus bg-lotus-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M100 180 C 60 180, 20 140, 20 100 C 40 110, 70 120, 100 160 C 130 120, 160 110, 180 100 C 180 140, 140 180, 100 180 Z"
+        fill="currentColor" />
+      <path d="M100 170 C 70 130, 60 80, 100 20 C 140 80, 130 130, 100 170 Z" fill="currentColor" opacity="0.8" />
+      <path d="M100 165 C 60 140, 30 100, 50 50 C 70 90, 80 130, 100 165 Z" fill="currentColor" opacity="0.5" />
+      <path d="M100 165 C 140 140, 170 100, 150 50 C 130 90, 120 130, 100 165 Z" fill="currentColor" opacity="0.5" />
+    </svg>
+
+    <!-- Zkřížené katany vlevo dole -->
+    <svg class="bg-katana bg-katana-2" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <g transform="rotate(45 150 150)">
+        <path d="M 50 150 Q 150 130, 280 100 L 270 110 Q 150 140, 50 160 Z" fill="currentColor" />
+        <rect x="20" y="148" width="30" height="4" fill="currentColor" />
+        <rect x="47" y="140" width="6" height="20" rx="2" fill="currentColor" />
+      </g>
+      <g transform="rotate(-45 150 150)">
+        <path d="M 50 150 Q 150 130, 280 100 L 270 110 Q 150 140, 50 160 Z" fill="currentColor" />
+        <rect x="20" y="148" width="30" height="4" fill="currentColor" />
+        <rect x="47" y="140" width="6" height="20" rx="2" fill="currentColor" />
+      </g>
+    </svg>
+
+  </div>
+
   <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
+
   <header class="site-header">
     <nav class="nav container" aria-label="Hlavní navigace">
       <a class="brand" href="#domu" aria-label="Shadows domů">
@@ -47,13 +115,16 @@
 
   <main id="obsah">
     <section class="hero" id="domu" aria-labelledby="hero-title">
+
+      <div class="brush-element brush-kanji hero-k" aria-hidden="true">影</div>
+
       <div class="hero-text container">
         <div class="japanese-title" aria-hidden="true">影の道</div>
         <div class="hero-header-row">
           <p class="eyebrow"><span></span> Feudální Japonsko · 1579</p>
           <div class="hanko-stamp" aria-hidden="true">影</div>
         </div>
-        <h1 id="hero-title">Staň se<br><em>stínem.</em></h1>
+        <h1 id="hero-title" class="brush-title">Staň se<br><em>stínem.</em></h1>
         <p class="hero-lead">Dvě cesty. Jeden osud. Objev příběh Naoe a Yasukeho v zemi, kde se ticho stává největší
           zbraní.</p>
         <div class="hero-actions">
@@ -81,10 +152,11 @@
     </section>
 
     <section class="intro section container" id="pribeh" aria-labelledby="story-title">
+
       <div class="section-kicker">01 / Příběh</div>
       <div class="intro-grid">
         <div>
-          <h2 id="story-title">Když se<br><em>stín potká</em><br>s ocelí.</h2>
+          <h2 id="story-title" class="brush-title">Když se<br><em>stín potká</em><br>s ocelí.</h2>
         </div>
         <div class="intro-copy">
           <p class="large-copy">V srdci Japonska se schyluje k neklidné budoucnosti. Země je rozdělená válkou a každý
@@ -101,11 +173,13 @@
     </section>
 
     <section class="characters section" id="postavy" aria-labelledby="characters-title">
-      <div class="container">
+      <div class="brush-element brush-kanji char-k" aria-hidden="true">忍</div>
+
+      <div class="container" style="position: relative; z-index: 1;">
         <div class="section-heading">
           <div>
             <div class="section-kicker">02 / Dvě cesty</div>
-            <h2 id="characters-title">Vyber si<br><em>svůj způsob.</em></h2>
+            <h2 id="characters-title" class="brush-title">Vyber si<br><em>svůj způsob.</em></h2>
           </div>
           <p>Každý hrdina nabízí jiný rytmus, jinou zbraň a jiný pohled na svět, který čeká na osvobození.</p>
         </div>
@@ -135,10 +209,11 @@
     </section>
 
     <section class="world section container" id="svet" aria-labelledby="world-title">
+
       <div class="section-kicker">03 / Živý svět</div>
-      <div class="world-layout">
+      <div class="world-layout" style="position: relative; z-index: 1;">
         <div class="world-copy">
-          <h2 id="world-title">Krása, která<br><em>se nezastaví.</em></h2>
+          <h2 id="world-title" class="brush-title">Krása, která<br><em>se nezastaví.</em></h2>
           <p>Od horských stezek v regionu Iga přes rušné ulice Ósaky až po historické centrum Kjóta. Assassin’s Creed
             Shadows
             zasazuje svůj příběh do skutečných oblastí středního Japonska.</p>
@@ -158,7 +233,7 @@
           <img class="world-photo" src="img/world.jpg" alt="Screenshot krajiny z Assassin’s Creed Shadows">
         </div>
       </div>
-      <div class="location-panel">
+      <div class="location-panel" style="position: relative; z-index: 1;">
         <div class="location-heading">
           <div class="section-kicker">Lokace ze hry</div>
           <p>Střední Japonsko · mapa příběhu</p>
@@ -212,7 +287,7 @@
         </div>
         <div class="detail-copy">
           <p class="section-kicker">01 / Domov shinobi</p>
-          <h2>Iga</h2>
+          <h2 class="brush-title">Iga</h2>
           <p>Horské údolí ukryté mezi lesy a skalami. Iga je místem, kde Naoe vyrůstala a kde se učí proměnit ticho,
             terén a stín ve vlastní výhodu.</p>
           <a class="arrow-link" href="#svet">Zpět k lokacím <span>↑</span></a>
@@ -224,7 +299,7 @@
         </div>
         <div class="detail-copy">
           <p class="section-kicker">02 / Město obchodu</p>
-          <h2>Ósaka</h2>
+          <h2 class="brush-title">Ósaka</h2>
           <p>Rušný přístav, tržiště a mohutný hrad vytvářejí prostor, kde se střetává moc, obchod i každodenní život.
             Ve městě se vyplatí sledovat dav stejně pozorně jako svého cíle.</p>
           <a class="arrow-link" href="#svet">Zpět k lokacím <span>↑</span></a>
@@ -236,7 +311,7 @@
         </div>
         <div class="detail-copy">
           <p class="section-kicker">03 / Politické srdce</p>
-          <h2>Kjóto</h2>
+          <h2 class="brush-title">Kjóto</h2>
           <p>Historické centrum země plné chrámů, zahrad a mocenských intrik. Kjóto odměňuje trpělivost a pečlivé
             plánování každého kroku.</p>
           <a class="arrow-link" href="#svet">Zpět k lokacím <span>↑</span></a>
@@ -248,7 +323,7 @@
         </div>
         <div class="detail-copy">
           <p class="section-kicker">04 / Pevnost Nobunagy</p>
-          <h2>Azuči</h2>
+          <h2 class="brush-title">Azuči</h2>
           <p>Výrazná pevnost a symbol rostoucí moci Ody Nobunagy. Azuči spojuje velkolepou architekturu s napětím,
             které je cítit za každou zdí.</p>
           <a class="arrow-link" href="#svet">Zpět k lokacím <span>↑</span></a>
@@ -261,8 +336,8 @@
     <div class="container footer-bottom">
       <div class="footer-brand">
         <a class="brand" href="#domu" aria-label="Shadows domů">
-        <img class="brand-logo" src="img/logo.png" alt="Logo Shadows">
-        <span>SHADOWS<small>ASSASSIN'S CREED</small></span>
+          <img class="brand-logo" src="img/logo.png" alt="Logo Shadows">
+          <span>SHADOWS<small>ASSASSIN'S CREED</small></span>
         </a>
       </div>
       <nav class="footer-links" aria-label="Validace a citace">
@@ -272,8 +347,8 @@
         <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaniel-gorcica.github.io%2Fshadows%2Fstyles.css"
           target="_blank" rel="noreferrer">CSS3 <span aria-hidden="true">✓</span></a>
         <i aria-hidden="true">/</i>
-        <a href="https://github.com/daniel-gorcica/shadows/blob/main/AI-CITACE.md" target="_blank"
-          rel="noreferrer">AI CITACE</a>
+        <a href="https://github.com/daniel-gorcica/shadows/blob/main/AI-CITACE.md" target="_blank" rel="noreferrer">AI
+          CITACE</a>
       </nav>
     </div>
   </footer>
